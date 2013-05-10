@@ -41,7 +41,7 @@ Usage
 Demo
 -------------------------
 
-[View the live demo](http://jsfiddle.net/ondercey/t99kV/2/) on jsFiddle.
+[View the live demo](http://jsfiddle.net/t99kV/3/) on jsFiddle.
 
 
 Cheers
