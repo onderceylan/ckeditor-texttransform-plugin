@@ -11,7 +11,7 @@ Available Transform Cases
 * Transform Capitalize: Capitalize each word of selected text
 * Transform Switcher: Loop through all cases
 
-internationalization
+Internationalization
 -------------------------
 
 Currently plugin supports 2 languages.
