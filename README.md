@@ -43,7 +43,7 @@ Usage
 Demo
 -------------------------
 
-[View the live demo](http://jsfiddle.net/t99kV/3/) on jsFiddle.
+[View the live demo](http://jsfiddle.net/t99kV/5/) on jsFiddle.
 
 
 Cheers
