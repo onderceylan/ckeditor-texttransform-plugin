@@ -1,7 +1,7 @@
 Text Transform Plugin for CKEDITOR
 ================================
 
-This is a very simple plugin which provides transforming selected texts to new cases.
+A very simple plugin which provides transforming selected text to new cases. You can transform selected text to uppercase, lowercase or simply capitalize that text.
 
 Available Transform Cases
 -------------------------
