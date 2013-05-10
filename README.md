@@ -24,17 +24,19 @@ Currently plugin supports 2 languages.
 Usage
 -------------------------
 
-1. Define plugin in CKEDITOR config object.
+1. Download source files and place them on to be created "texttransform" folder under the CKeditor's plugin base.
+
+2. Define plugin in CKEDITOR config object.
 
         CKEDITOR.config.extraPlugins = 'texttransform';
 
-2. Add transform buttons to your editor toolbar.
+3. Add transform buttons to your editor toolbar.
 
         CKEDITOR.config.toolbar = [
             { name: 'texttransform', items: [ 'TransformTextToUppercase', 'TransformTextToLowercase', 'TransformTextCapitalize', 'TransformTextSwitcher' ] }
         ];
 
-3. Set your CKEDITOR language if you did not set it yet.
+4. Set your CKEDITOR language if you did not set it yet.
 
         CKEDITOR.config.language = 'en';
 
