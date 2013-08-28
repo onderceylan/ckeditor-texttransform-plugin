@@ -1,11 +1,8 @@
 /**
- * @author: Önder Ceylan <onderceylan@gmail.com>
- * @copyright Copyright (c) 2013 - Önder Ceylan. All rights reserved.
+ * @authors: Önder Ceylan <onderceylan@gmail.com>, PPKRAUSS https://github.com/ppKrauss
  * @license Licensed under the terms of GPL, LGPL and MPL licenses.
- * @version 1.0
- *
- * Date: 5/9/13
- * Time: 5:14 PM
+ * @version 1.1
+ * @history v1.0 at 2013-05-09 by onderceylan, v1.1 at 2013-08-27 by ppkrauss.
  */
 
 CKEDITOR.plugins.add('texttransform',
@@ -52,17 +49,15 @@ CKEDITOR.plugins.add('texttransform',
                     exec : function()
                     {
                         var selection = editor.getSelection();
-
                         if (selection.getSelectedText().length > 0) {
-
-                            if (editor.langCode == "tr") {
-                                editor.insertHtml(selection.getSelectedText().trToUpperCase());
-                            } else {
-                                editor.insertHtml(selection.getSelectedText().toUpperCase());
-                            }
-
-                        }
-                    }
+				var ranges = selection.getRanges(),
+				    walker = new CKEDITOR.dom.walker( ranges[0] ), 
+				    node;
+				while ( ( node = walker.next() ) ) 
+					if ( node.type == CKEDITOR.NODE_TEXT && node.getText() ) 
+						node.$.textContent = node.$.textContent.toLocaleUpperCase();
+                        }//if
+                    } //func
                 });
 
             // add transformTextToUppercase command to be used with buttons and 'execCommand' method
@@ -71,38 +66,38 @@ CKEDITOR.plugins.add('texttransform',
                     exec : function()
                     {
                         var selection = editor.getSelection();
-
                         if (selection.getSelectedText().length > 0) {
-
-                            if (editor.langCode == "tr") {
-                                editor.insertHtml(selection.getSelectedText().trToLowerCase());
-                            } else {
-                                editor.insertHtml(selection.getSelectedText().toLowerCase());
-                            }
-                        }
+				var ranges = selection.getRanges(),
+				    walker = new CKEDITOR.dom.walker( ranges[0] ), 
+				    node;
+				while ( ( node = walker.next() ) ) 
+					if ( node.type == CKEDITOR.NODE_TEXT && node.getText() ) 
+						node.$.textContent = node.$.textContent.toLocaleLowerCase();
+                        }//if
 
                     }
                 });
 
-            // add transformTextSwitch command to be used with buttons and 'execCommand' method
+            // add transformTextCapitalize command to be used with buttons and 'execCommand' method
             editor.addCommand( 'transformTextCapitalize',
                 {
                     exec : function()
                     {
                         var selection = editor.getSelection();
                         if (selection.getSelectedText().length > 0) {
-
-                            var capitalized;
-
-                            if (editor.langCode == "tr") {
-                                capitalized = (selection.getSelectedText()).replace(/\w\S*/g, function(txt){return txt.charAt(0).trToUpperCase() + txt.substr(1).trToLowerCase();});
-                                editor.insertHtml(capitalized);
-                            } else {
-                                capitalized = (selection.getSelectedText()).replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-                                editor.insertHtml(capitalized);
-                            }
-
-                        }
+				var ranges = selection.getRanges(),
+				    walker = new CKEDITOR.dom.walker( ranges[0] ), 
+				    node;
+				while ( ( node = walker.next() ) ) 
+					if ( node.type == CKEDITOR.NODE_TEXT && node.getText() )
+						node.$.textContent = node.$.textContent.replace(
+							/[^\s]\S*/g, 
+							function(txt){
+								return  txt.charAt(0).toLocaleUpperCase() + 
+									txt.substr(1).toLocaleLowerCase();
+							}
+						);
+                        }//if
                     }
                 });
 
