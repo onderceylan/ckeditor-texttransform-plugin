@@ -55,7 +55,11 @@ CKEDITOR.plugins.add('texttransform',
 				    node;
 				while ( ( node = walker.next() ) ) 
 					if ( node.type == CKEDITOR.NODE_TEXT && node.getText() ) 
-						node.$.textContent = node.$.textContent.toLocaleUpperCase();
+						if (editor.langCode == "tr") {
+							node.$.textContent = node.$.textContent.trToUpperCase();
+						} else {
+							node.$.textContent = node.$.textContent.toLocaleUpperCase();		
+						}
                         }//if
                     } //func
                 });
@@ -72,7 +76,12 @@ CKEDITOR.plugins.add('texttransform',
 				    node;
 				while ( ( node = walker.next() ) ) 
 					if ( node.type == CKEDITOR.NODE_TEXT && node.getText() ) 
-						node.$.textContent = node.$.textContent.toLocaleLowerCase();
+						if (editor.langCode == "tr") {
+							node.$.textContent = node.$.textContent.trToLowerCase();
+						} else {
+							node.$.textContent = node.$.textContent.toLocaleLowerCase();		
+						}
+						
                         }//if
 
                     }
@@ -93,8 +102,14 @@ CKEDITOR.plugins.add('texttransform',
 						node.$.textContent = node.$.textContent.replace(
 							/[^\s]\S*/g, 
 							function(txt){
-								return  txt.charAt(0).toLocaleUpperCase() + 
-									txt.substr(1).toLocaleLowerCase();
+								if (editor.langCode == "tr") {
+									return  txt.charAt(0).trToUpperCase() + 
+										txt.substr(1).trToLowerCase();
+								} else {
+									return  txt.charAt(0).toLocaleUpperCase() + 
+										txt.substr(1).toLocaleLowerCase();
+								}
+							
 							}
 						);
                         }//if
