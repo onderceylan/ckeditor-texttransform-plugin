@@ -9,7 +9,7 @@ CKEDITOR.plugins.add('texttransform',
     {
 
         // define lang codes for available lang files here
-        lang: 'en,tr',
+        lang: 'en,tr,fr',
 
         // plugin initialise
         init: function(editor)
