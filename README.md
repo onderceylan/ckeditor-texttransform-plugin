@@ -14,11 +14,12 @@ Available Transform Cases
 Internationalization
 -------------------------
 
-Currently plugin supports 3 languages.
+Currently plugin supports 4 languages.
 
 * en
 * tr
 * fr (thanks to regisenguehard)
+* es (thanks to mivanpv)
 
 *Translations are welcomed.*
 
