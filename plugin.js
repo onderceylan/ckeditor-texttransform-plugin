@@ -121,7 +121,8 @@ CKEDITOR.plugins.add('texttransform',
                 {
                     label: editor.lang.texttransform.transformTextSwitchLabel,
                     command: 'transformTextSwitch',
-                    icon: this.path + 'images/transformSwitcher.png'
+                    icon: this.path + 'images/transformSwitcher.png',
+                    toolbar: 'texttransform'
                 } );
 
             // add TransformTextToLowercase button to editor
@@ -129,7 +130,8 @@ CKEDITOR.plugins.add('texttransform',
                 {
                     label: editor.lang.texttransform.transformTextToLowercaseLabel,
                     command: 'transformTextToLowercase',
-                    icon: this.path + 'images/transformToLower.png'
+                    icon: this.path + 'images/transformToLower.png',
+                    toolbar: 'texttransform'
                 } );
 
             // add TransformTextToUppercase button to editor
@@ -137,7 +139,8 @@ CKEDITOR.plugins.add('texttransform',
                 {
                     label: editor.lang.texttransform.transformTextToUppercaseLabel,
                     command: 'transformTextToUppercase',
-                    icon: this.path + 'images/transformToUpper.png'
+                    icon: this.path + 'images/transformToUpper.png',
+                    toolbar: 'texttransform'
                 } );
 
             // add TransformTextCapitalize button to editor
@@ -145,7 +148,8 @@ CKEDITOR.plugins.add('texttransform',
                 {
                     label: editor.lang.texttransform.transformTextCapitalizeLabel,
                     command: 'transformTextCapitalize',
-                    icon: this.path + 'images/transformCapitalize.png'
+                    icon: this.path + 'images/transformCapitalize.png',
+                    toolbar: 'texttransform'
                 } );
         }
     } );

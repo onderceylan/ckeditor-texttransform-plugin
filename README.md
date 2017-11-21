@@ -34,7 +34,7 @@ Usage
 3. Add transform buttons to your editor toolbar.
 
         CKEDITOR.config.toolbar = [
-            { name: 'texttransform', items: [ 'TransformTextToUppercase', 'TransformTextToLowercase', 'TransformTextCapitalize', 'TransformTextSwitcher' ] }
+		{ name: 'paragraph',   groups: ['texttransform'] }
         ];
 
 4. Set your CKEDITOR language if you did not set it yet.
