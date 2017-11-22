@@ -14,11 +14,12 @@ Available Transform Cases
 Internationalization
 -------------------------
 
-Currently plugin supports 3 languages.
+Currently plugin supports 4 languages.
 
 * en
 * tr
 * fr (thanks to regisenguehard)
+* es (thanks to mivanpv)
 
 *Translations are welcomed.*
 
@@ -34,7 +35,7 @@ Usage
 3. Add transform buttons to your editor toolbar.
 
         CKEDITOR.config.toolbar = [
-            { name: 'texttransform', items: [ 'TransformTextToUppercase', 'TransformTextToLowercase', 'TransformTextCapitalize', 'TransformTextSwitcher' ] }
+		{ name: 'paragraph',   groups: ['texttransform'] }
         ];
 
 4. Set your CKEDITOR language if you did not set it yet.
