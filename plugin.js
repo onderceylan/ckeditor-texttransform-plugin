@@ -36,23 +36,24 @@ CKEDITOR.plugins.add('texttransform',
 
                             nodeText = node.$.textContent;
 
-                            if (node.equals(range.startContainer) || node.equals(range.endContainer)) {
-                                if (node.equals(range.startContainer) && node.equals(range.endContainer)) {
-                                    var textLength = range.endOffset - range.startOffset;
-                                    nodeText = nodeText.substr(0, range.startOffset) +
-                                               transformFunc(nodeText.substr(range.startOffset, textLength)) + 
-                                               nodeText.substr(range.endOffset);
-                                } else {
-                                    if (node.equals(range.startContainer)) {
-                                        nodeText = nodeText.substr(0, range.startOffset) +
-                                            transformFunc(nodeText.substr(range.startOffset));
-                                    }
-                                    else if (node.equals(range.endContainer)) {
-        
-                                        nodeText = transformFunc(nodeText.substr(0, range.endOffset)) +
-                                            nodeText.substr(range.endOffset);
-                                    }
-                                }                                
+                            if (node.equals(range.startContainer) && node.equals(range.endContainer)) { // fix for selection in plain text
+                                var textLength = range.endOffset - range.startOffset;
+                                nodeText = nodeText.substr(0, range.startOffset) +
+                                           transformFunc(nodeText.substr(range.startOffset, textLength)) + 
+                                           nodeText.substr(range.endOffset);
+                                node.$.textContent = nodeText;
+                                continue;
+                            }
+
+                            if (node.equals(range.startContainer)) {
+
+                                nodeText = nodeText.substr(0, range.startOffset) +
+                                    transformFunc(nodeText.substr(range.startOffset));
+                            }
+                            else if (node.equals(range.endContainer)) {
+
+                                nodeText = transformFunc(nodeText.substr(0, range.endOffset)) +
+                                    nodeText.substr(range.endOffset);
                             }
                             else {
 
