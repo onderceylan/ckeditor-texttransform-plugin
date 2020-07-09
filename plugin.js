@@ -36,6 +36,15 @@ CKEDITOR.plugins.add('texttransform',
 
                             nodeText = node.$.textContent;
 
+                            if (node.equals(range.startContainer) && node.equals(range.endContainer)) { // fix for selection in plain text
+                                var textLength = range.endOffset - range.startOffset;
+                                nodeText = nodeText.substr(0, range.startOffset) +
+                                           transformFunc(nodeText.substr(range.startOffset, textLength)) + 
+                                           nodeText.substr(range.endOffset);
+                                node.$.textContent = nodeText;
+                                continue;
+                            }
+
                             if (node.equals(range.startContainer)) {
 
                                 nodeText = nodeText.substr(0, range.startOffset) +
